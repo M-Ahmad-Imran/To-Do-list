@@ -1,0 +1,184 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(#4e3f3f, black);
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 100vh;
+    color: white;
+}
+
+/* Header */
+
+.head {
+    text-transform: uppercase;
+    color: whitesmoke;
+    padding: 10px;
+    background-color: #163536;
+    text-align: center;
+}
+
+.prominent {
+    color: #9969c5;
+}
+
+/* Main */
+
+main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.todo-box {
+    width: 350px;
+    margin-top: 50px;
+    padding: 30px;
+    border: 2px solid yellow;
+    background: linear-gradient(#331e1e, rgb(82, 20, 20));
+}
+
+input,
+textarea {
+    background-color: black;
+    color: wheat;
+    border: 2px solid green;
+}
+
+.input-task {
+    text-transform: uppercase;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 5px;
+    font-size: 19px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: #3b2b2b;
+}
+
+input[type='text']:hover,
+textarea:hover {
+    box-shadow: 2px 2px 35px white;
+}
+
+input[type='datetime-local'] {
+    padding: 0.5em;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+input[type='datetime-local']:hover {
+    box-shadow: 2px 2px 35px #5a4d4d;
+    cursor: cell;
+}
+
+input[type='checkbox'] {
+    height: 20px;
+    width: 20px;
+}
+
+textarea {
+    width: 100%;
+}
+
+.completed {
+    color: yellow;
+}
+
+.add-btn {
+    display: flex;
+    justify-content: end;
+    margin-top: 17px;
+}
+
+.submit-btn {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 7px;
+    color: brown;
+    background-color: lightgreen;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 2px 2px 35px rgb(26, 26, 22);
+}
+
+.submit-btn:hover {
+    box-shadow: 2px 2px 35px #319418;
+}
+
+.remove-btn,
+#editbtn,
+#safebtn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+}
+
+#safebtn {
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+    /* display: flex;
+    flex-wrap: wrap; */
+    align-items: center;
+    width: 350px;
+}
+
+.datetime {
+    font-size: 14px;
+}
+
+li {
+    /* flex: 1 1  calc(50% - 10px); */
+    margin: 15px 0;
+    padding: 10px;
+    max-height: 250px;
+    font-size: 20px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+li h1 {
+    text-transform: uppercase;
+}
+
+.tododesc {
+    font-size: 25px;
+    padding: 10px 0;
+    overflow: hidden;
+}
+
+@media (max-width : 500px) {
+    main {
+        display: block;
+        justify-content: center;
+    }
+
+    .todo-box {
+        width: 90%;
+        margin: 15px;
+    }
+
+    ul {
+        width: 90%;
+        margin: 7px;
+    }
+}
