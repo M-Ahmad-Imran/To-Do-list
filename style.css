@@ -116,6 +116,12 @@ textarea {
     box-shadow: 2px 2px 35px #319418;
 }
 
+.btns{
+    display: flex;
+    gap: 5px;
+    justify-content: end;
+}
+
 .remove-btn,
 #editbtn,
 #safebtn {
@@ -154,6 +160,7 @@ li {
     justify-content: center;
     flex-direction: column;
     color: white;
+    background-color: #3b2b2b;
 }
 
 li h1 {
