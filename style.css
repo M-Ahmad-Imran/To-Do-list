@@ -42,6 +42,14 @@ main {
     background: linear-gradient(#331e1e, rgb(82, 20, 20));
 }
 
+.edittext{
+    background: transparent;
+    border: 1px solid red;
+}
+input[type="text"].edittext:hover{
+    box-shadow: none;
+}
+
 input,
 textarea {
     background-color: black;

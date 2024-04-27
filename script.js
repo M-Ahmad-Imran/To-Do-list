@@ -36,9 +36,9 @@ function addTask(tasks, date, description) {
         <h1 class="todotext">${task}</h1>
         <span class="datetime">${formatedDate}</span>
         <span class="tododesc">${desc}</span>
-        <input class="edittext" style="display:none"></input>
+        <input type="text" class="edittext" style="display:none"></input>
         <span class="btns">
-            <button class="remove-btn">Remove</button>
+            <button class="remove-btn" onclick="deleteTask(this.parentElement)">Remove</button>
             <button id="editbtn">Edit</button>
             <button id="safebtn">Safe</button>
         </span>`
@@ -83,7 +83,7 @@ document.getElementById('todo-box').addEventListener('submit', function (e) {
     todoitem(task.value, date.value, description.value);
     task.value = "";
     description.value = "";
-    date.value = d;
+    date.value = DT();
 });
 
 function deleteTask(button) {
