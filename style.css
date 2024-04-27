@@ -117,7 +117,7 @@ textarea {
     box-shadow: 2px 2px 35px #319418;
 }
 
-.btns{
+.btns {
     display: flex;
     gap: 5px;
     justify-content: end;
