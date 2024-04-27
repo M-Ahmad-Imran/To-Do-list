@@ -15,7 +15,7 @@
         </div>
     </header>
     <main>
-        <div class="todo-box">
+        <form id="todo-box">
             <div class="inputs">
                 <div id="warning"></div>
                 <input type="text" id="input-task" autocomplete="off" placeholder="Task...." value="task" required>
@@ -23,9 +23,9 @@
                 <input type="datetime-local" id="input-date" required>
             </div>
             <div class="add-btn">
-                <button class="submit-btn" onclick="addTask()">ADD TASK</button>
+                <button type="submit" class="submit-btn">ADD TASK</button>
             </div>
-        </div>
+        </form>
         <ul id="taskList"></ul>
     </main>
     <script src="script.js"></script>

@@ -1,75 +1,92 @@
-let date = new Date();
-let year = date.getFullYear();
-let month = String(date.getMonth() + 1).padStart(2, 0);
-let day = String(date.getDate()).padStart(2, 0);
-let hour = String(date.getHours()).padStart(2, 0);
-let minutes = String(date.getMinutes()).padStart(2, 0);
-
-const d = `${year}-${month}-${day}T${hour}:${minutes}`
-
-document.getElementById("input-date").value = d;
-
-function formatDate(Datetime) {
-    let date = new Date(Datetime);
+function DT(){
+    let date = new Date();
     let year = date.getFullYear();
-    let month = String(date.getMonth()).padStart(2, 0);
+    let month = String(date.getMonth() + 1).padStart(2, 0);
     let day = String(date.getDate()).padStart(2, 0);
     let hour = String(date.getHours()).padStart(2, 0);
     let minutes = String(date.getMinutes()).padStart(2, 0);
-    const dt = `Date:${day}-${month}-${year}<br>Time:${hour}:${minutes}`;
 
-    return dt;
+    return `${year}-${month}-${day}T${hour}:${minutes}`
 }
 
-function addTask() {
-    const task = document.getElementById('input-task');
-    const task_time = document.getElementById('input-date').value;
-    const desc = document.getElementById("dis");
-    const formatedDate = formatDate(task_time);
-    const tasklist = document.getElementById('taskList');
+    document.getElementById("input-date").value = DT();
 
-    if (task.value !== "" && task_time !== "" && desc.value !== "") {
-        const newtask = document.createElement('li');
+    function formatDate(Datetime) {
+        let date = new Date(Datetime);
+        let year = date.getFullYear();
+        let month = String(date.getMonth()).padStart(2, 0);
+        let day = String(date.getDate()).padStart(2, 0);
+        let hour = String(date.getHours()).padStart(2, 0);
+        let minutes = String(date.getMinutes()).padStart(2, 0);
+        const dt = `Date:${day}-${month}-${year}<br>Time:${hour}:${minutes}`;
 
-        newtask.innerHTML = `
-        <h1 class="todotext">${task.value}</h1>
+        return dt;
+    }
+
+    function addTask(tasks, date, description) {
+        const task = tasks;
+        const task_time = date;
+        const desc = description;
+        const formatedDate = formatDate(task_time);
+
+        if (task !== "" && task_time !== "" && desc !== "") {
+            const li = document.createElement('li');
+
+            li.innerHTML = `
+        <h1 class="todotext">${task}</h1>
         <span class="datetime">${formatedDate}</span>
-        <span class="tododesc">${desc.value}</span>
-        <input class="edittext"></input>
+        <span class="tododesc">${desc}</span>
+        <input class="edittext" style="display:none"></input>
         <span class="btns">
-            <button class="remove-btn" onclick="deleteTask(this.parentElement)">Remove</button>
+            <button class="remove-btn">Remove</button>
             <button id="editbtn">Edit</button>
             <button id="safebtn">Safe</button>
         </span>`
 
-        tasklist.appendChild(newtask);
-        const edittext = document.querySelector(".edittext");
-        const textcontent = document.querySelector(".tododesc");
-        edittext.style.display = "none";
-        editbtn.addEventListener("click", () => {
-            edittext.value = textcontent.textContent;
-            edittext.style.display = "inline";
-            textcontent.style.display = "none";
-            editbtn.style.display = "none";
-            safebtn.style.display = "inline";
-            task.value = "";
-            desc.value = "";
-            task_time.value = "";
-            warning.innerHTML = "";
-        })
-        document.getElementById('safebtn').addEventListener("click", ()=>{
-            textcontent.textContent = edittext.value;
-            edittext.style.display = "none";
-            textcontent.style.display = "inline";
-            safebtn.style.display = "none";
-            editbtn.style.display = "inline";
-        })
-    } else {
-        warning.innerHTML = "Filling each box is compulsary!";
-    }
-}
+            const edittext = li.querySelector(".edittext");
+            const textcontent = li.querySelector(".tododesc");
+            const editbtn = li.querySelector("#editbtn");
+            const safebtn = li.querySelector('#safebtn');
+            editbtn.addEventListener('click', function () {
+                edittext.value = textcontent.textContent;
+                edittext.style.display = "inline";
+                textcontent.style.display = "none";
+                editbtn.style.display = "none";
+                safebtn.style.display = "inline";
+            })
+            safebtn.addEventListener('click', function () {
+                textcontent.textContent = edittext.value;
+                edittext.style.display = "none";
+                textcontent.style.display = "inline";
+                safebtn.style.display = "none";
+                editbtn.style.display = "inline";
+            })
 
-function deleteTask(button) {
-    const taskItem = button.parentElement;
-    taskItem.remove();
-}
+            return li;
+        } else {
+            warning.innerHTML = "Filling each box is compulsary!";
+        }
+    }
+
+    function todoitem(tasks, date, description) {
+        const tasklist = document.getElementById('taskList');
+        const newitem = addTask(tasks, date, description);
+        tasklist.appendChild(newitem);
+    }
+
+    document.getElementById('todo-box').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const task = document.getElementById("input-task");
+        const description = document.getElementById("dis");
+        const date = document.getElementById("input-date");
+
+        todoitem(task.value,date.value,description.value);
+        task.value = "";
+        description.value = "";
+        date.value = d;
+    });
+
+    function deleteTask(button) {
+        const taskItem = button.parentElement;
+        taskItem.remove();
+    }
