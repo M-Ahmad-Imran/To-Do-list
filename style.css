@@ -162,7 +162,7 @@ li {
     /* flex: 1 1  calc(50% - 10px); */
     margin: 15px 0;
     padding: 10px;
-    max-height: 250px;
+    width: 100%;
     font-size: 20px;
     border: 1px solid #ddd;
     display: flex;
@@ -189,12 +189,13 @@ li h1 {
     }
 
     #todo-box {
-        width: 90%;
-        margin: 15px;
+        width: 95%;
+        margin: 50px 10px;
+        align-items: center;
     }
 
     ul {
-        width: 90%;
-        margin: 7px;
+        width: 95%;
+        margin: 10px;
     }
 }
