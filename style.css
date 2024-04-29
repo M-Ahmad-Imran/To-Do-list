@@ -42,13 +42,7 @@ main {
     background: linear-gradient(#331e1e, rgb(82, 20, 20));
 }
 
-.edittext{
-    background: transparent;
-    border: 1px solid red;
-}
-input[type="text"].edittext:hover{
-    box-shadow: none;
-}
+/* Inputs Sections */
 
 input,
 textarea {
@@ -56,10 +50,6 @@ textarea {
     color: wheat;
     border: 2px solid green;
     background-color: #3b2b2b;
-}
-
-.input-task {
-    text-transform: uppercase;
 }
 
 input[type='text'],
@@ -71,11 +61,6 @@ textarea {
     border-radius: 10px;
 }
 
-input[type='text']:hover,
-textarea:hover {
-    box-shadow: 2px 2px 35px white;
-}
-
 input[type='datetime-local'] {
     padding: 2%;
     font-family: 'Courier New', Courier, monospace;
@@ -83,11 +68,6 @@ input[type='datetime-local'] {
     text-transform: uppercase;
     border: 1px solid #ccc;
     border-radius: 10px;
-}
-
-input[type='datetime-local']:hover {
-    box-shadow: 2px 2px 35px #5a4d4d;
-    cursor: cell;
 }
 
 input[type='checkbox'] {
@@ -99,8 +79,41 @@ textarea {
     width: 100%;
 }
 
-.completed {
-    color: yellow;
+.input-task {
+    text-transform: uppercase;
+}
+
+.edittext {
+    background: transparent;
+    border: 1px solid red;
+}
+
+input[type='text']:hover,
+textarea:hover {
+    box-shadow: 2px 2px 35px white;
+}
+
+
+input[type="text"].edittext:hover {
+    box-shadow: none;
+}
+
+
+input[type='datetime-local']:hover {
+    box-shadow: 2px 2px 35px #5a4d4d;
+    cursor: cell;
+}
+
+.datetime {
+    font-size: 14px;
+}
+
+/* Buttons Sections */
+
+.btns {
+    display: flex;
+    gap: 5px;
+    justify-content: end;
 }
 
 .add-btn {
@@ -112,8 +125,8 @@ textarea {
 .submit-btn {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 7px;
-    color: brown;
-    background-color: lightgreen;
+    color: white;
+    background-color: rgba(40, 37, 53, 0.658);
     font-size: 18px;
     border: none;
     border-radius: 10px;
@@ -123,12 +136,6 @@ textarea {
 
 .submit-btn:hover {
     box-shadow: 2px 2px 35px #319418;
-}
-
-.btns {
-    display: flex;
-    gap: 5px;
-    justify-content: end;
 }
 
 .remove-btn,
@@ -146,16 +153,14 @@ textarea {
     display: none;
 }
 
+/* Todo Lists Section */
+
 ul {
     list-style-type: none;
     /* display: flex;
     flex-wrap: wrap; */
     align-items: center;
     width: 350px;
-}
-
-.datetime {
-    font-size: 14px;
 }
 
 li {
